@@ -1,14 +1,15 @@
+import Assignment from "./Assignment.js"
+
 export default {
+    components: { Assignment },
     template: `
         <div v-show="assignments.length">
             <h3>{{ title }}</h3>
-            <div class="form-group"
+            <assignment
                 v-for="assignment in assignments"
                 :key="assignment.name"
-            >
-                <input type="checkbox" v-model="assignment.complete" class="mr-3">
-                <label>{{ assignment.name }}</label>
-            </div>
+                :assignment="assignment"
+            ></assignment>
         </div>
     `,
     props: {
