@@ -1,10 +1,16 @@
 export default {
     template: `
-        <button class='btn btn-primary'>
-            <slot />
+        <button :class="{
+            'btn btn-primary': buttonType === 'primary',
+            'btn btn-secondary': buttonType === 'secondary',
+        }">
+            {{ buttonType }}
         </button>
     `,
-    mounted() {
-        console.log('Mounted')
+    props: {
+        buttonType: {
+            default: 'primary',
+            type: String,
+        }
     }
 }
