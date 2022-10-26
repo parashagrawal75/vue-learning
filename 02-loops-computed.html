@@ -8,52 +8,12 @@
 </head>
 
 <body>
-    <div id="app" class="container my-5">
-        <div v-show="incompleteAssignments.length">
-            <h3>Assignments</h3>
-            <div class="form-group"
-                v-for="assignment in incompleteAssignments"
-                :key="assignment.name"
-            >
-                <input type="checkbox" v-model="assignment.complete" class="mr-3">
-                <label>{{ assignment.name }}</label>
-            </div>
-        </div>
-        <div v-show="completedAssignments.length">
-            <h3>Completed Assignments</h3>
-            <div class="form-group"
-                v-for="assignment in completedAssignments"
-                :key="assignment.name"
-            >
-                <input type="checkbox" v-model="assignment.complete" class="mr-3">
-                <label>{{ assignment.name }}</label>
-            </div>
-        </div>
-    </div>
+    <div id="app" class="container my-5"></div>
 
-    <script>
-        let app = {
-            data() {
-                return {
-                    assignments: [
-                        { name: 'First assignment', complete: false },
-                        { name: 'Second assignment', complete: false },
-                        { name: 'Third assignment', complete: false },
-                        { name: 'Fourth assignment', complete: false },
-                    ]
-                }
-            },
-            computed: {
-                completedAssignments() {
-                    return this.assignments.filter(assignment => assignment.complete)
-                },
-                incompleteAssignments() {
-                    return this.assignments.filter(assignment => !assignment.complete)
-                }
-            }
-        }
+    <script type="module">
+        import App from './js/components/assignments/app.js'
 
-        Vue.createApp(app).mount('#app')
+        Vue.createApp(App).mount('#app')
     </script>
 </body>
 
