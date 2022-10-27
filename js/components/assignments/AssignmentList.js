@@ -11,8 +11,7 @@ export default {
             </h3>
             <assignment-tags
                 :initial-tags="this.assignments.map(assignment => assignment.tag)"
-                @change="this.currentTag = $event"
-                :current-tag="currentTag"
+                v-model:currentTag="currentTag"
             />
             <assignment
                 v-for="assignment in filteredAssignments"
