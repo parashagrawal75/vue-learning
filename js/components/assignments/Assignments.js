@@ -11,10 +11,10 @@ export default {
     data() {
         return {
             assignments: [
-                { name: 'First assignment', complete: false },
-                { name: 'Second assignment', complete: false },
-                { name: 'Third assignment', complete: false },
-                { name: 'Fourth assignment', complete: false },
+                { name: 'First assignment', complete: false, tag: 'science' },
+                { name: 'Second assignment', complete: false, tag: 'maths' },
+                { name: 'Third assignment', complete: false, tag: 'nepali' },
+                { name: 'Fourth assignment', complete: false, tag: 'science' },
             ],
         }
     },
