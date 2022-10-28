@@ -4,11 +4,14 @@ import AssignmentTags from "./AssignmentTags.js";
 export default {
     components: { Assignment, AssignmentTags },
     template: `
-        <div v-show="assignments.length">
-            <h3>
-                {{ title }}
-                <span>({{ filteredAssignments.length }})</span>
-            </h3>
+        <div v-show="assignments.length" class="col-6">
+            <div class="d-flex">
+                <h3>
+                    {{ title }}
+                    <span>({{ filteredAssignments.length }})</span>
+                </h3>
+                <span class="ml-5">&times;</span>
+            </div>
             <assignment-tags
                 :initial-tags="this.assignments.map(assignment => assignment.tag)"
                 v-model:currentTag="currentTag"
@@ -18,6 +21,7 @@ export default {
                 :key="assignment.name"
                 :assignment="assignment"
             ></assignment>
+            <slot />
         </div>
     `,
     props: {

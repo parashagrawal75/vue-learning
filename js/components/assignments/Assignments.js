@@ -4,19 +4,24 @@ import AssignmentCreate from './AssignmentCreate.js';
 export default {
     components: { AssignmentList, AssignmentCreate },
     template: `
-        <assignment-list :assignments="filters.inprogress" title="In progress"></assignment-list>
-        <assignment-list :assignments="filters.complete" title="Completed"></assignment-list>
-        <assignment-create @add='add'></assignment-create>
+        <div class="d-flex">
+            <assignment-list :assignments="filters.inprogress" title="In progress">
+                <assignment-create @add='add'></assignment-create>
+            </assignment-list>
+            <assignment-list :assignments="filters.complete" title="Completed"></assignment-list>
+        </div>
     `,
     data() {
         return {
-            assignments: [
-                { name: 'First assignment', complete: false, tag: 'science' },
-                { name: 'Second assignment', complete: false, tag: 'maths' },
-                { name: 'Third assignment', complete: false, tag: 'nepali' },
-                { name: 'Fourth assignment', complete: false, tag: 'science' },
-            ],
+            assignments: [],
         }
+    },
+    created() {
+        fetch('http://localhost:3001/assignments')
+            .then(response => response.json())
+            .then(assignments => {
+                this.assignments = assignments;
+            })
     },
     computed: {
         filters() {

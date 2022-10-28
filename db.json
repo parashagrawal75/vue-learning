@@ -1,0 +1,24 @@
+{
+    "assignments": [
+        {
+            "name": "First assignment",
+            "complete": false,
+            "tag": "science"
+        },
+        {
+            "name": "Second assignment",
+            "complete": false,
+            "tag": "maths"
+        },
+        {
+            "name": "Third assignment",
+            "complete": true,
+            "tag": "nepali"
+        },
+        {
+            "name": "Fourth assignment",
+            "complete": false,
+            "tag": "science"
+        }
+    ]
+}
