@@ -7,8 +7,13 @@ export default {
         <div class="d-flex">
             <assignment-list :assignments="filters.inprogress" title="In progress">
                 <assignment-create @add='add'></assignment-create>
+                <template #secondSlot>
+                    This is second slot
+                </template>
             </assignment-list>
-            <assignment-list :assignments="filters.complete" title="Completed"></assignment-list>
+
+            <assignment-list :assignments="filters.complete" title="Completed" can-be-closed>
+            </assignment-list>
         </div>
     `,
     data() {
